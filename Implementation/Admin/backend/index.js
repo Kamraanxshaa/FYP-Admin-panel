@@ -1,11 +1,9 @@
-module.exports = {
-    getRestaurants: require('./getRestaurants'),
-    searchRestaurantsByName: require('./searchRestaurantsByName'),
-    deleteRestaurant: require('./deleteRestaurant'),
-    updateRestaurant: require('./updateRestaurant'),
-    addRestaurant: require('./addRestaurant'),
-    getUserByRestaurantId: require('./getUserByRestaurantId'),
-    
+const getUsers = require('./getUsers');
+const getUserByUsername = require('./getUserByUsername');
+const deleteUser = require('./deleteUser');
 
-  };
-  
+module.exports = {
+  getUsers,
+  getUserByUsername,
+  deleteUser,
+};
