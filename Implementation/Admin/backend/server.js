@@ -12,7 +12,7 @@ const {
 
 const { getUsers, getUserByUsername, deleteUser } = require('./dbQueries_user');
 
-const { getReservationsByRestaurantId } = require('./dbQueries_reservations');
+const { getReservationsByRestaurantId, getAllReservations} = require('./dbQueries_reservations');
 
 const { getDealsByRestaurantId } = require('./dbQueries_deals');
 
@@ -223,6 +223,16 @@ app.get('/reservations/:restaurantId', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ message: 'Error fetching reservations', error: error.message });
+  }
+});
+
+// New endpoint to get all reservations
+app.get('/reservations', async (req, res) => {
+  try {
+    const reservations = await getAllReservations();
+    res.json(reservations);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch reservations' });
   }
 });
 
